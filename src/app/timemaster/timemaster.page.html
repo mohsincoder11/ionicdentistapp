@@ -1,0 +1,209 @@
+<ion-content [scrollEvents]="true" class="container">
+  <ion-row class="custom_toolbar">
+    <ion-toolbar color="light_background">
+      <span class="header_span" routerLink="/profilepage">
+        <i class="fas fa-angle-left fa-fw"></i>
+      </span>
+    </ion-toolbar>
+  </ion-row>
+
+  <div class="login_container">
+
+
+
+    <ion-row>
+      <ion-col size="12">
+
+        <div class="form ion-text-center">
+          <form #time_slot_form="ngForm">
+            <ion-row>
+              <ion-col size="12">
+                <ion-radio-group value="morning" (ionChange)="radioGroupChange($event)">
+
+                  <ion-row>
+                    <ion-col size="4" class="no_pad">
+                      <ion-item lines="none">
+                        <ion-label><i class="fas fa-cloud-sun fa-fw faicon"></i></ion-label>
+                        <ion-radio class="custom_radio" slot="start" name="time_period" id="Morning" value="morning">
+                        </ion-radio>
+                      </ion-item>
+                    </ion-col>
+
+                    <ion-col size="4" class="no_pad">
+                      <ion-item lines="none">
+                        <ion-label><i class="fas fa-sun fa-fw faicon"></i></ion-label>
+                        <ion-radio class="custom_radio" slot="start" name="time_period" id="Afternoon"
+                          value="afternoon"></ion-radio>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col size="4" class="no_pad">
+                      <ion-item lines="none">
+                        <ion-label><i class="fas fa-moon fa-fw faicon"></i></ion-label>
+                        <ion-radio class="custom_radio" slot="start" name="time_period" id="Evening" value="evening">
+                        </ion-radio>
+                      </ion-item>
+                    </ion-col>
+
+                  </ion-row>
+                </ion-radio-group>
+
+
+              </ion-col>
+              <ion-col size="4.5">
+                <ion-item lines="none">
+                  <ion-label position="floating">Start Time</ion-label>
+                  <ion-datetime class="time_in" [min]="minTime1" [max]="maxTime1" displayFormat="hh:mm A"
+                    pickerFormat="HH:mm A" ngModel name="start_time">
+                  </ion-datetime>
+                  <ion-text class="error_msg" color="danger" *ngIf="start_time">
+                    Required
+                  </ion-text>
+                </ion-item>
+              </ion-col>
+
+              <ion-col size="4.5">
+                <ion-item lines="none">
+                  <ion-label position="floating">End Time</ion-label>
+                  <ion-datetime class="time_in" [min]="minTime1" [max]="maxTime1" displayFormat="hh:mm A"
+                    pickerFormat="HH:mm A" ngModel name="end_time">
+                  </ion-datetime>
+                  <ion-text class="error_msg" color="danger" *ngIf="end_time">
+                    Required
+                  </ion-text>
+                  <ion-text class="error_msg" color="danger" *ngIf="correct_time">
+                    Choose valid time
+                  </ion-text>
+                </ion-item>
+              </ion-col>
+
+              <ion-col size="3">
+                <ion-item lines="none" class="full_width">
+                  <ion-label position="floating">slot-min</ion-label>
+                  <ion-input type="number" ngModel name="duration"> </ion-input>
+
+                  <ion-text class="error_msg" color="danger" *ngIf="duration"> Required.</ion-text>
+
+                </ion-item>
+              </ion-col>
+
+              <ion-col size="6">
+                <ion-item lines="none" class="full_width">
+                  <ion-label position="floating">Select Doctor</ion-label>
+                  <ion-select placeholder="Select doctor" ngModel name="doctor_id"
+                    (ionChange)="get_hospital_of_doctor($event)">
+                    <ion-select-option *ngFor="let n of doctor_list;let i=index" value="{{n.id}}">{{n.f_name}}
+                      {{n.l_name}}</ion-select-option>
+                  </ion-select>
+                  <ion-text class="error_msg" color="danger" *ngIf="doctor_id"> This field is required</ion-text>
+
+                </ion-item>
+              </ion-col>
+
+              <ion-col size="6">
+                <ion-item lines="none" class="full_width">
+                  <ion-label position="floating">Select Hospital</ion-label>
+                  <ion-select placeholder="Select Hospital" ngModel name="hospital_id">
+                    <ion-select-option *ngFor="let h of hospital_list;" value="{{h.id}}">{{h.hospital_name}}
+                    </ion-select-option>
+                  </ion-select>
+                  <ion-text class="error_msg" color="danger" *ngIf="hospital_id"> This field is required</ion-text>
+                </ion-item>
+              </ion-col>
+
+            </ion-row>
+            <ion-row class="last_row">
+              <ion-col>
+                <ion-button expand="block" (click)="generate_slot(time_slot_form)"> Add Time Slot
+                </ion-button>
+              </ion-col>
+            </ion-row>
+
+          </form>
+        </div>
+        <div class="table">
+         
+              <ion-card class="skeletoncard animate_card" *ngFor="let d of doctor_with_hosp;let j=index;">
+                <ion-card-content>
+                  <ion-row>
+                    <ion-col size="11">
+                      <div class="uhid_text">Doctor: {{d.f_name}} {{d.l_name}} </div>
+                    </ion-col>                   
+                    <ion-col size="1">
+                      <span class="downarrow tooltip2" id="downarrow3{{j}}" (click)="toggle_div(d.doctor_id,d.hospital_id,'3'+j)">
+                        <i class="fas fa-angle-down fa-fw"></i>
+                      </span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="section" id="collapsible3{{j}}">
+                    <ion-col size="12">
+                      <ion-text><strong>Hospital :</strong> {{d.hospital_name}}</ion-text>                   
+                    </ion-col>
+                  
+                    <ion-row class="time_div">
+                      <div class="month_year_div">
+                        <span class="month_year_label"> Morning</span>
+                        <span class="month_year_label_setting" (click)="delete_time_slot(d.doctor_id,d.hospital_id,'morning')" ><i class="fas fa-trash fa-fw"></i></span>
+
+                      </div>
+                      
+                      <div class="time_tab"  *ngIf="time_slot_array" >
+                        <span *ngFor="let time of time_slot_array.morning" 
+                        [ngClass]="time.status==1 ? 'time_label active' : 'time_label'"  id="time{{time.id}}" >
+                        {{time.time}} </span>
+                           </div>
+                    </ion-row> 
+                    
+                    <ion-row class="time_div" >
+                      <div class="month_year_div">
+                        <span class="month_year_label"> Afternoon</span>
+                        <span class="month_year_label_setting" (click)="delete_time_slot(d.doctor_id,d.hospital_id,'afternoon')" ><i class="fas fa-trash fa-fw"></i></span>
+
+                      </div>
+                      <div class="time_tab"  *ngIf="time_slot_array" >
+                        <span *ngFor="let time of time_slot_array.afternoon"
+                        [ngClass]="time.status==1 ? 'time_label active' : 'time_label'" id="time{{time.id}}" >
+                         {{time.time}} </span>
+                           </div>
+                    </ion-row>
+                
+                    <ion-row class="time_div" >
+                      <div class="month_year_div">
+                        <span class="month_year_label"> Evening</span>
+                        <span class="month_year_label_setting" (click)="delete_time_slot(d.doctor_id,d.hospital_id,'evening')" ><i class="fas fa-trash fa-fw"></i></span>
+
+                      </div>
+                      <div class="time_tab"  *ngIf="time_slot_array" >
+                        <span *ngFor="let time of time_slot_array.evening" 
+                        [ngClass]="time.status==1 ? 'time_label active' : 'time_label'"  id="time{{time.id}}" >
+                        {{time.time}} </span>
+                           </div>
+                    </ion-row>
+                  </ion-row>
+
+                </ion-card-content>
+              </ion-card>
+           
+        </div>
+      </ion-col>
+
+
+
+
+
+    </ion-row>
+  </div>
+
+  <div id="snackbar"> <span id="snackbar_error"></span></div>
+
+
+  <div class="loader" *ngIf="loader_visibility">
+    <img src="assets/icon/loader.gif" alt="">
+  </div>
+  
+  <div class="small_loader" *ngIf="small_loader">
+    <svg class="small_spinner" width="65px" height="65px" viewBox="0 0 50 50">
+      <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+    </svg>
+  </div>
+
+</ion-content>

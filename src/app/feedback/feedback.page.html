@@ -1,0 +1,70 @@
+<ion-content class="main_container">
+  <ion-row class="custom_toolbar">
+    <ion-toolbar color="light_background">
+      <span class="header_span" routerLink="/profilepage">
+        <i class="fas fa-angle-left fa-fw"></i>
+      </span>
+    </ion-toolbar>
+  </ion-row>
+  <div class="image_container">
+    <img src="assets/icon/feedback.svg" alt="">
+  </div>
+
+
+  <div>
+    <form #form_feedback="ngForm" class="form">
+      <ion-grid>
+
+
+        <ion-row>
+          <h2>Feel free to write us about our service or technical problems.</h2>
+
+
+          <ion-col size="12">
+            <ion-item lines="none">
+              <ion-label position="floating">Select Category</ion-label>
+              <ion-select value="Bug" okText="Select" cancelText="Cancel" name="category" ngModel required>
+                <ion-select-option selected value="UI Changes"> UI Changes </ion-select-option>
+                <ion-select-option value="Performance"> Performance </ion-select-option>
+                <ion-select-option value="Bug"> Bug </ion-select-option>
+                <ion-select-option value="Other"> Other </ion-select-option>
+              </ion-select>
+              <ion-text class="error_msg" color="danger" *ngIf="category"> This field is required.
+              </ion-text>
+            </ion-item>
+          </ion-col>
+
+
+
+          <ion-col size="12">
+            <ion-item lines="none">
+              <ion-label position="floating">Describe</ion-label>
+              <ion-textarea type="text" ngModel name="description" required>
+              </ion-textarea>
+              <ion-text class="error_msg" color="danger" *ngIf="description"> This field is required.
+              </ion-text>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+
+        <ion-row class="last_row footerbtn">
+          <ion-col size="12">
+            <ion-button color="secondary" expand="block" (click)="submit_feedback(form_feedback)">
+              Submit
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+
+      </ion-grid>
+    </form>
+  </div>
+  <div id="snackbar"> <span id="snackbar_error"></span></div>
+
+
+  <div class="loader" *ngIf="loader_visibility">
+    <img src="assets/icon/loader.gif" alt="">
+  </div>
+
+</ion-content>

@@ -4,15 +4,15 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: #059dbe;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  --ion-color-primary-shade: #059dbe;
+  --ion-color-primary-tint: #059dbe;
 
   /** secondary **/
-  --ion-color-secondary: #3dc2ff;
+  --ion-color-secondary: #059dbe;
   --ion-color-secondary-rgb: 61, 194, 255;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
@@ -20,12 +20,12 @@
   --ion-color-secondary-tint: #50c8ff;
 
   /** tertiary **/
-  --ion-color-tertiary: #5260ff;
+  --ion-color-tertiary: #059dbe;
   --ion-color-tertiary-rgb: 82, 96, 255;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
-  --ion-color-tertiary-shade: #4854e0;
-  --ion-color-tertiary-tint: #6370ff;
+  --ion-color-tertiary-shade: #059dbe;
+  --ion-color-tertiary-tint: #059dbe;
 
   /** success **/
   --ion-color-success: #2dd36f;
@@ -52,7 +52,7 @@
   --ion-color-danger-tint: #ed576b;
 
   /** dark **/
-  --ion-color-dark: #222428;
+  --ion-color-dark: #3a3a3a;
   --ion-color-dark-rgb: 34, 36, 40;
   --ion-color-dark-contrast: #ffffff;
   --ion-color-dark-contrast-rgb: 255, 255, 255;
@@ -60,20 +60,45 @@
   --ion-color-dark-tint: #383a3e;
 
   /** medium **/
-  --ion-color-medium: #92949c;
+  --ion-color-medium: #4d4d4d;
   --ion-color-medium-rgb: 146, 148, 156;
   --ion-color-medium-contrast: #ffffff;
   --ion-color-medium-contrast-rgb: 255, 255, 255;
   --ion-color-medium-shade: #808289;
   --ion-color-medium-tint: #9d9fa6;
 
+  /** medium2 custom color **/
+  --ion-color-medium2: #999999;
+  --ion-color-medium2-rgb: 146, 148, 156;
+  --ion-color-medium2-contrast: #181616;
+  --ion-color-medium2-contrast-rgb: 255, 255, 255;
+  --ion-color-medium2-shade: #e7e7e7;
+  --ion-color-medium2-tint: #f3f3f3;
+
+
   /** light **/
-  --ion-color-light: #f4f5f8;
+  --ion-color-light: #fefefd;
   --ion-color-light-rgb: 244, 245, 248;
   --ion-color-light-contrast: #000000;
   --ion-color-light-contrast-rgb: 0, 0, 0;
-  --ion-color-light-shade: #d7d8da;
-  --ion-color-light-tint: #f5f6f9;
+  --ion-color-light-shade: #f3f3f3;
+  --ion-color-light-tint: #ffffff;
+
+  /** cardbackgrond **/
+  --ion-color-cardback: #f9fffc;
+  --ion-color-cardback-rgb: 244, 245, 248;
+  --ion-color-cardback-contrast: #000000;
+  --ion-color-cardback-contrast-rgb: 0, 0, 0;
+  --ion-color-cardback-shade: #d7d8da;
+  --ion-color-cardback-tint: #ffffff;
+
+  /** bubblecolor **/
+  --ion-color-bubblecolor: #edebff;
+  --ion-color-bubblecolor-rgb: 244, 245, 248;
+  --ion-color-bubblecolor-contrast: #000000;
+  --ion-color-bubblecolor-contrast-rgb: 0, 0, 0;
+  --ion-color-bubblecolor-shade: #d7d8da;
+  --ion-color-bubblecolor-tint: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -83,68 +108,94 @@
    */
 
   body {
-    --ion-color-primary: #428cff;
-    --ion-color-primary-rgb: 66,140,255;
+    --ion-color-primary: #059dbe;
+    --ion-color-primary-rgb: 66, 140, 255;
     --ion-color-primary-contrast: #ffffff;
-    --ion-color-primary-contrast-rgb: 255,255,255;
-    --ion-color-primary-shade: #3a7be0;
-    --ion-color-primary-tint: #5598ff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #059dbe;
+    --ion-color-primary-tint: #059dbe;
 
-    --ion-color-secondary: #50c8ff;
-    --ion-color-secondary-rgb: 80,200,255;
+    --ion-color-secondary: #059dbe;
+    --ion-color-secondary-rgb: 80, 200, 255;
     --ion-color-secondary-contrast: #ffffff;
-    --ion-color-secondary-contrast-rgb: 255,255,255;
+    --ion-color-secondary-contrast-rgb: 255, 255, 255;
     --ion-color-secondary-shade: #46b0e0;
     --ion-color-secondary-tint: #62ceff;
 
-    --ion-color-tertiary: #6a64ff;
-    --ion-color-tertiary-rgb: 106,100,255;
+    --ion-color-tertiary: #059dbe;
+    --ion-color-tertiary-rgb: 106, 100, 255;
     --ion-color-tertiary-contrast: #ffffff;
-    --ion-color-tertiary-contrast-rgb: 255,255,255;
-    --ion-color-tertiary-shade: #5d58e0;
-    --ion-color-tertiary-tint: #7974ff;
+    --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+    --ion-color-tertiary-shade: #059dbe;
+    --ion-color-tertiary-tint: #059dbe;
 
     --ion-color-success: #2fdf75;
-    --ion-color-success-rgb: 47,223,117;
+    --ion-color-success-rgb: 47, 223, 117;
     --ion-color-success-contrast: #000000;
-    --ion-color-success-contrast-rgb: 0,0,0;
+    --ion-color-success-contrast-rgb: 0, 0, 0;
     --ion-color-success-shade: #29c467;
     --ion-color-success-tint: #44e283;
 
     --ion-color-warning: #ffd534;
-    --ion-color-warning-rgb: 255,213,52;
+    --ion-color-warning-rgb: 255, 213, 52;
     --ion-color-warning-contrast: #000000;
-    --ion-color-warning-contrast-rgb: 0,0,0;
+    --ion-color-warning-contrast-rgb: 0, 0, 0;
     --ion-color-warning-shade: #e0bb2e;
     --ion-color-warning-tint: #ffd948;
 
     --ion-color-danger: #ff4961;
-    --ion-color-danger-rgb: 255,73,97;
+    --ion-color-danger-rgb: 255, 73, 97;
     --ion-color-danger-contrast: #ffffff;
-    --ion-color-danger-contrast-rgb: 255,255,255;
+    --ion-color-danger-contrast-rgb: 255, 255, 255;
     --ion-color-danger-shade: #e04055;
     --ion-color-danger-tint: #ff5b71;
 
     --ion-color-dark: #f4f5f8;
-    --ion-color-dark-rgb: 244,245,248;
+    --ion-color-dark-rgb: 244, 245, 248;
     --ion-color-dark-contrast: #000000;
-    --ion-color-dark-contrast-rgb: 0,0,0;
+    --ion-color-dark-contrast-rgb: 0, 0, 0;
     --ion-color-dark-shade: #d7d8da;
     --ion-color-dark-tint: #f5f6f9;
 
-    --ion-color-medium: #989aa2;
-    --ion-color-medium-rgb: 152,154,162;
+    --ion-color-medium: #e2e2e2;
+    --ion-color-medium-rgb: 152, 154, 162;
     --ion-color-medium-contrast: #000000;
-    --ion-color-medium-contrast-rgb: 0,0,0;
+    --ion-color-medium-contrast-rgb: 0, 0, 0;
     --ion-color-medium-shade: #86888f;
     --ion-color-medium-tint: #a2a4ab;
 
-    --ion-color-light: #222428;
-    --ion-color-light-rgb: 34,36,40;
+    /** medium2 custom color **/
+    --ion-color-medium2: #989aa2;
+    --ion-color-medium2-rgb: 146, 148, 156;
+    --ion-color-medium2-contrast: #181616;
+    --ion-color-medium2-contrast-rgb: 255, 255, 255;
+    --ion-color-medium2-shade: #e7e7e7;
+    --ion-color-medium2-tint: #1d1d1d;
+
+
+    //*** light*/
+    --ion-color-light: #1e1e1e;
+    --ion-color-light-rgb: 34, 36, 40;
     --ion-color-light-contrast: #ffffff;
-    --ion-color-light-contrast-rgb: 255,255,255;
+    --ion-color-light-contrast-rgb: 255, 255, 255;
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;
+
+    //*** cardbackground*/
+    --ion-color-cardback: #171717;
+    --ion-color-cardback-rgb: 34, 36, 40;
+    --ion-color-cardback-contrast: #ffffff;
+    --ion-color-cardback-contrast-rgb: 255, 255, 255;
+    --ion-color-cardback-shade: #1e2023;
+    --ion-color-cardback-tint: #383a3e;
+
+    //*** bubblecolor*/
+    --ion-color-bubblecolor: #313131;
+    --ion-color-bubblecolor-rgb: 34, 36, 40;
+    --ion-color-bubblecolor-contrast: #ffffff;
+    --ion-color-bubblecolor-contrast-rgb: 255, 255, 255;
+    --ion-color-bubblecolor-shade: #1e2023;
+    --ion-color-bubblecolor-tint: #383a3e;
   }
 
   /*
@@ -154,10 +205,10 @@
 
   .ios body {
     --ion-background-color: #000000;
-    --ion-background-color-rgb: 0,0,0;
+    --ion-background-color-rgb: 0, 0, 0;
 
     --ion-text-color: #ffffff;
-    --ion-text-color-rgb: 255,255,255;
+    --ion-text-color-rgb: 255, 255, 255;
 
     --ion-color-step-50: #0d0d0d;
     --ion-color-step-100: #1a1a1a;
@@ -198,10 +249,10 @@
 
   .md body {
     --ion-background-color: #121212;
-    --ion-background-color-rgb: 18,18,18;
+    --ion-background-color-rgb: 18, 18, 18;
 
     --ion-text-color: #ffffff;
-    --ion-text-color-rgb: 255,255,255;
+    --ion-text-color-rgb: 255, 255, 255;
 
     --ion-border-color: #222222;
 
@@ -233,4 +284,759 @@
 
     --ion-card-background: #1e1e1e;
   }
+
+  .ion-color-medium2 {
+    --ion-color-base: var(--ion-color-medium2) !important;
+    --ion-color-base-rgb: var(--ion-color-medium2-rgb) !important;
+    --ion-color-contrast: var(--ion-color-medium2-contrast) !important;
+    --ion-color-contrast-rgb: var(--ion-color-medium2-contrast-rgb) !important;
+    --ion-color-shade: var(--ion-color-medium2-shade) !important;
+    --ion-color-tint: var(--ion-color-medium2-tint) !important;
+  }
+
+  .ion-color-cardback {
+    --ion-color-base: var(--ion-color-cardback) !important;
+    --ion-color-base-rgb: var(--ion-color-cardback-rgb) !important;
+    --ion-color-contrast: var(--ion-color-cardback-contrast) !important;
+    --ion-color-contrast-rgb: var(--ion-color-cardback-contrast-rgb) !important;
+    --ion-color-shade: var(--ion-color-cardback-shade) !important;
+    --ion-color-tint: var(--ion-color-cardback-tint) !important;
+  }
+
+  .ion-color-bubblecolor {
+    --ion-color-base: var(--ion-color-bubblecolor) !important;
+    --ion-color-base-rgb: var(--ion-color-bubblecolor-rgb) !important;
+    --ion-color-contrast: var(--ion-color-bubblecolor-contrast) !important;
+    --ion-color-contrast-rgb: var(--ion-color-bubblecolor-contrast-rgb) !important;
+    --ion-color-shade: var(--ion-color-bubblecolor-shade) !important;
+    --ion-color-tint: var(--ion-color-bubblecolor-tint) !important;
+  }
+
+
+}
+
+ion-content {
+  --ion-background-color: var(--ion-color-light);
+}
+
+.card-content-md {
+  padding-bottom: 0px !important;
+  padding-top: 5px !important;
+}
+
+ion-button {
+  font-size: 0.65em;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+
+.plus_button {
+  --background: var(--ion-color-success);
+  padding: 0px 0px 0px 0px;
+  margin: 0;
+  font-size: 12px;
+}
+
+:focus {
+  outline: none;
+}
+
+.custom_toolbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: var(--ion-color-light);
+}
+
+.header_title {
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #d8d6d6;
+  padding: 2% 0% 2% 4%;
+  text-align: start;
+  color: var(--ion-color-medium);
+
+  ion-icon {
+    font-size: 16px;
+  }
+}
+
+.header_span {
+  background: var(--ion-color-primary-tint);
+  color: #fff;
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin-left: 4%;
+}
+
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+}
+
+.back-to-top-btn {
+  -webkit-animation: slide-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  background: linear-gradient(var(--ion-color-primary), var(--ion-color-secondary));
+  position: fixed;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  left: 82%;
+  transform: translateX(-50%);
+  bottom: 6%;
+  z-index: 999;
+}
+
+
+/**custom search css*/
+.search_main_div {
+  padding: 0px 10px 10px 10px;
+}
+
+.search_div {
+  height: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 100%;
+  border: 1px solid var(--ion-color-light-tint);
+  border-radius: 18px;
+  // display: block;
+  background: var(--ion-color-light-tint);
+  padding: 2px 10px 2px 10px;
+
+  ion-input {
+    float: left;
+    width: 70%;
+    color: var(--ion-color-medium2);
+    font-weight: bold;
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  ion-icon {
+    float: right;
+    width: 20%;
+    padding: 10px;
+    color: var(--ion-color-medium2);
+    font-size: 14px;
+  }
+}
+
+/*tooltip*/
+
+.tooltip2 {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip2 .tooltiptext2 {
+  visibility: hidden;
+  background-color: var(--ion-color-dark);
+  color: var(--ion-color-light);
+  ;
+  text-align: center;
+  border-radius: 5px;
+  padding: 6px 15px;
+  font-size: 10px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 70%;
+  margin-left: -50px;
+}
+
+.tooltip2 .tooltiptext2::after {
+  border-style: solid;
+  border-color: var(--ion-color-dark) transparent transparent transparent;
+}
+
+@-webkit-keyframes fade-out-bck {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1
+  }
+
+  100% {
+    -webkit-transform: translateZ(-80px);
+    transform: translateZ(-80px);
+    opacity: 0
+  }
+}
+
+@keyframes fade-out-bck {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1
+  }
+
+  100% {
+    -webkit-transform: translateZ(-80px);
+    transform: translateZ(-80px);
+    opacity: 0
+  }
+}
+
+.tooltip2:hover .tooltiptext2 {
+  -webkit-animation: fade-out-bck 4s cubic-bezier(.25, .46, .45, .94) both;
+  animation: fade-out-bck 4s cubic-bezier(.25, .46, .45, .94) both;
+
+  visibility: visible;
+  transition-timing-function: ease-in-out;
+}
+
+/*padding*/
+.mg-5 {
+  margin-top: 5%;
+}
+
+/**/
+/*image container */
+.image_containerall {
+  text-align: center;
+  padding: 1vh;
+
+  img {
+    height: 18vh;
+    width: auto;
+  }
+}
+
+/**/
+.error_msg {
+  padding-top: 0.5vh;
+  font-size: .7em;
+  color: var(--ion-color-danger);
+}
+
+/*snackbar*/
+
+
+#snackbar {
+  visibility: hidden;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 1vh 2vh;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 1;
+  bottom: 10vh;
+  font-size: 0.9em;
+  min-width: 80%;
+}
+
+#snackbar.show_danger {
+  background-color: var(--ion-color-danger);
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#snackbar.show_warning {
+  background-color: var(--ion-color-dark);
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#snackbar.show_success {
+  background-color: var(--ion-color-secondary);
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 10vh;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 10vh;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 10vh;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 10vh;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+/*end*/
+
+
+
+
+/*loader*/
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+}
+
+.spinner {
+  -webkit-animation: rotate 2s linear infinite;
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+}
+
+$offset: 50;
+$duration: 1.5s;
+
+.path {
+  stroke-dasharray: $offset;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation:
+    dash $duration ease-in-out infinite,
+    colors ($duration*1) ease-in-out infinite;
+}
+
+@keyframes colors {
+  0% {
+    stroke: var(--ion-color-secondary);
+  }
+
+  25% {
+    stroke: var(--ion-color-primary);
+  }
+
+  50% {
+    stroke: var(--ion-color-success);
+  }
+
+  75% {
+    stroke: var(--ion-color-primary);
+  }
+
+  100% {
+    stroke: var(--ion-color-primary);
+  }
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/**/
+
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+  }
+
+  100% {
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px)
+  }
+}
+
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+  }
+
+  100% {
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px)
+  }
+}
+
+.back-to-top-btn {
+  -webkit-animation: slide-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  background: linear-gradient(var(--ion-color-primary), var(--ion-color-secondary));
+  position: fixed;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  left: 82%;
+  transform: translateX(-50%);
+  bottom: 1%;
+  z-index: 999;
+}
+
+.add_button_plus {
+  background: linear-gradient(var(--ion-color-primary), var(--ion-color-secondary));
+  position: fixed;
+  border-radius: 50%;
+  width: 7vh;
+  height: 7vh;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  left: 88%;
+  transform: translateX(-50%);
+  bottom: 10%;
+  z-index: 999;
+  font-weight: bold;
+  box-shadow: rgba(150, 150, 150, 0.2) 0px 5px 15px;
+
+  ion-icon {
+    font-weight: bolder;
+    font-size: 1em;
+  }
+}
+
+.custom_modal {
+  visibility: hidden;
+  z-index: 999;
+  transition: 0.5s ease-in;
+
+  .skeletoncard {
+    display: inline-block;
+    background: var(--ion-color-cardback);
+    //margin-top: 0px;
+    margin: 0;
+    padding: 0;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 90%;
+    margin-left:5%;
+
+    .cancel_btn {
+      color: var(--ion-color-dark);
+      padding-bottom: 0.5em;
+      background-color: var(--ion-color-cardback);
+    }
+
+    .delete_btn {
+      color: #fff;
+      padding-bottom: 0.5em;
+      background-color: var(--ion-color-danger);
+    }
+
+    .doc_name {
+      color: var(--ion-color-medium);
+      font-weight: bold;
+      font-size: 1em;
+      padding: 0.5em 0;
+    }
+
+    .doc_category {
+      color: var(--ion-color-medium2);
+      font-size: 0.9em;
+      letter-spacing: 0.1px;
+      line-height: 1.5em;
+      padding: 0 0.5em 0.5em 0.5em;
+
+    }
+
+    .cardtop {
+      padding-top: 2vh;
+      text-align: center;
+      border-bottom: 1px solid var(--ion-color-light-shade);
+
+      .faicon_col {
+        width: 3em;
+        height: 3em;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 60px;
+        vertical-align: middle;
+        padding: 10px;
+        font-size: 1.2em;
+        color: var(--ion-color-danger);
+        transition: 0.2s;
+        background-color: white;
+        border: 3px solid var(--ion-color-danger);
+
+      }
+    }
+
+    .section {
+      color: var(--ion-color-medium2);
+    }
+
+    .opd_card_footer {
+      text-align: center;
+      font-weight: bold;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(.5);
+    transform: scale(.5)
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+}
+
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(.5);
+    transform: scale(.5)
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+}
+
+.custom_modal.show {
+  top: 30%;
+  padding: 0 2%;
+  //  left: 2%;
+  position: fixed;
+  z-index: 10000;
+  transform: translate(-2%, -30%);
+  -webkit-animation: scale-up-center .4s cubic-bezier(.39, .575, .565, 1.000) both;
+  animation: scale-up-center .4s cubic-bezier(.39, .575, .565, 1.000) both;
+  visibility: visible;
+}
+
+@-webkit-keyframes scale-down-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+
+  100% {
+    -webkit-transform: scale(.5);
+    transform: scale(.5)
+  }
+}
+
+@keyframes scale-down-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+
+  100% {
+    -webkit-transform: scale(.5);
+    transform: scale(.5)
+  }
+}
+
+.custom_modal.hide {
+  -webkit-animation: scale-down-center .2s cubic-bezier(.25, .46, .45, .94) both;
+  animation: scale-down-center .2s cubic-bezier(.25, .46, .45, .94) both;
+  visibility: hidden;
+}
+
+/*internet snackbar*/
+#internet_snackbar {
+  box-shadow: rgba(150, 150, 150, 0.5) 0px 5px 15px;
+
+  visibility: hidden;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 1vh 2vh;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 1;
+  top: 10vh;
+  font-size: 0.9em;
+  min-width: 80%;
+}
+
+/**/
+#internet_snackbar.show_danger {
+  background-color: var(--ion-color-danger);
+  visibility: visible;
+  -webkit-animation: fadein2 0.5s, fadeout2 0.5s 9.5s;
+  animation: fadein2 0.5s, fadeout2 0.5s 9.5s;
+}
+
+@-webkit-keyframes fadein2 {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 10vh;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein2 {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 10vh;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout2 {
+  from {
+    top: 10vh;
+    opacity: 1;
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout2 {
+  from {
+    top: 10vh;
+    opacity: 1;
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+.colored-toast.swal2-icon-success {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+.colored-toast.swal2-icon-error {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
 }

@@ -1,0 +1,102 @@
+<ion-content [scrollEvents]="true" class="container">
+  <ion-row class="custom_toolbar">
+    <ion-toolbar color="light_background">
+      <span class="header_span" routerLink="/profilepage">
+        <i class="fas fa-angle-left fa-fw"  ></i>
+      </span>
+  </ion-toolbar>
+  </ion-row>
+
+  <div class="login_container">
+
+    <ion-row>
+      <ion-col size="12">
+
+        <div class="form ion-text-center">
+          <form #leaveform="ngForm">
+            <ion-row>
+              <ion-col size="12">
+
+                <ion-calendar class="ion_calendar" [(ngModel)]="date" name="date" [type]="type" [format]="'YYYY-MM-DD'">
+                  >
+                </ion-calendar>
+              </ion-col>
+              <ion-text class="error_msg left_pad" color="danger" *ngIf="date2"> Plaese select date.</ion-text>
+            
+              <ion-col size="12" *ngIf="is_admin">
+                <ion-item lines="none" class="full_width">
+               <ion-label position="floating" >Select Doctor</ion-label>
+               <ion-select placeholder="Select doctor"  ngModel name="doctor_id">
+                 <ion-select-option *ngFor="let n of doctor_list;let i=index" value="{{n.id}}">{{n.f_name}} {{n.l_name}}</ion-select-option>
+               </ion-select>    
+               <ion-text  class="error_msg" color="danger" *ngIf="doctor_id"> This field is required</ion-text>   
+                
+           </ion-item>
+             </ion-col>  
+             
+              <ion-col size="12">
+                <ion-item lines="none">
+                  <ion-label position="floating">Reason for leave</ion-label>
+                  <ion-input type="text" ngModel name="reason" required> </ion-input>
+                  <ion-text class="error_msg" color="danger" *ngIf="reason"> This field is required.</ion-text>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+<ion-row class="last_row">
+  <ion-col>
+     <ion-button expand="block" (click)="add_leave(leaveform)"> Add Leave Day
+            </ion-button>
+  </ion-col>
+</ion-row>
+           
+          </form>
+        </div>
+        <div class="table">
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Date / Leave Reason</th>
+              <th>Delete</th>
+            </tr>
+            <tr *ngFor="let n of leave_days;let i=index">
+              <td>{{n.f_name}}</td>
+              <td><span class="leave_date">{{n.date}} /</span> {{n.reason}}</td>
+              <td (click)="delete_leave(n.id)"><i class="fas fa-trash"></i></td>
+            </tr>
+          </table>
+        </div>
+        <div class="custom_modal" id="confirm_add_leave_modal">
+  <ion-card class="skeletoncard">
+    <ion-row class="cardtop">
+      <ion-col size="12" >
+        <i class="fas faicon_col fa-trash-alt"></i>
+      </ion-col>
+      <ion-col size="12">
+        <div class="doc_name">Appointments Exist <span class="exist_count">{{appointment_count}}.</span>  </div>
+        <div class="doc_category">You have appointments on selected date. Still want to add leave day? </div>
+
+      </ion-col>
+    </ion-row>
+    <ion-row class="opd_card_footer">
+      <ion-col size="6" class="cancel_btn" (click)="close_modal('confirm_add_leave_modal')">
+        <ion-label expand="block" size="small">Cancel</ion-label>
+      </ion-col>
+      <ion-col size="6" class="delete_btn" (click)="confirm_add_leave()">
+        <ion-label expand="block" size="small">
+          Confirm Leave
+        </ion-label>
+      </ion-col>
+    </ion-row>
+</ion-card>
+</div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+
+<div id="snackbar"> <span id="snackbar_error"></span></div>
+<div class="loader" *ngIf="loader_visibility">
+  <img src="assets/icon/loader.gif" alt="">
+</div>
+

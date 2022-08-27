@@ -1,27 +1,59 @@
-#container {
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+body {
+  margin: 0px;
+  font-family: 'Roboto';
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+#container {
+  color: var(--ion-color-medium);
+  background: -webkit-linear-gradient(#22b4d4 0%,#12b4d8 25%,#059dbe 50%,#0493b3 75%,#0489a7 100%);
+  background: -moz-linear-gradient(#22b4d4 0%,#12b4d8 25%,#059dbe 50%,#0493b3 75%,#0489a7 100%);
+  background: linear-gradient(#22b4d4 0%,#12b4d8 25%,#059dbe 50%,#0493b3 75%,#0489a7 100%);
+    position: fixed;
+  width: 100%;
+  height: 100%;
+
+
 }
+.image_container{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  text-align: center;
+  padding: 4vh;
+  background:#fff;
+  border-radius:15vh;
+  height:16vh;
+  width: 16vh;
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+  @-webkit-keyframes heartbeat{from{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:center center;transform-origin:center center;-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}10%{-webkit-transform:scale(.91);transform:scale(.91);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}17%{-webkit-transform:scale(.98);transform:scale(.98);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}33%{-webkit-transform:scale(.87);transform:scale(.87);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}45%{-webkit-transform:scale(1);transform:scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}}@keyframes heartbeat{from{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:center center;transform-origin:center center;-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}10%{-webkit-transform:scale(.91);transform:scale(.91);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}17%{-webkit-transform:scale(.98);transform:scale(.98);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}33%{-webkit-transform:scale(.87);transform:scale(.87);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}45%{-webkit-transform:scale(1);transform:scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}}img{
+  -webkit-animation:heartbeat 1.5s ease-in-out infinite both;animation:heartbeat 1.5s ease-in-out infinite both;
+          height: 8vh;
+      width: 8vh;
+  }
+  
+  }
 
-  color: #8c8c8c;
+ 
+    ion-label{       
+        font-family: 'Kanit', sans-serif;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+    font-size:1.8em;
+    display: block;
+    position: fixed;
+    top: 52%;
+    //left: 50%;
+    transform: translate( -52%);
+    text-align: center;
+    letter-spacing:2px;
+  }
 
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
+  @-webkit-keyframes puff-in-center{0%{-webkit-transform:scale(2);transform:scale(2);-webkit-filter:blur(4px);filter:blur(4px);opacity:0}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes puff-in-center{0%{-webkit-transform:scale(2);transform:scale(2);-webkit-filter:blur(4px);filter:blur(4px);opacity:0}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-filter:blur(0);filter:blur(0);opacity:1}}
+   .hide{
+    -webkit-animation:puff-in-center 1 cubic-bezier(.47,0.000,.745,.715) both;animation:puff-in-center 1s cubic-bezier(.47,0.000,.745,.715) both;
+    }

@@ -1,0 +1,78 @@
+<ion-content [scrollEvents]="true" class="container">
+
+  <div [ngClass]="'menu-header-bg1'">
+    <div class="header-content">
+      <img src="{{url.doctor_image}}/{{session_data.image}}" alt="" *ngIf="session_data.image">
+      <span class="image_clone" *ngIf="!session_data.image">
+        <span class="image_clone_text">
+          {{session_data.f_name| slice:0:1 | uppercase }}
+          {{session_data.l_name| slice:0:1 | uppercase }}
+        </span>
+      </span>
+    </div>
+    <span class="username">{{session_data.f_name}} {{session_data.l_name}}</span>
+    <span class="useremail">{{session_data.specialization}}</span>
+  </div>
+  <!-- <div class="hexagon"
+id="hexagon">
+</div> -->
+  <ion-row class="listcontainer">
+    <ion-list class="menu-items" lines="none">        
+      <ion-item routerLink="/myprofile" detail>
+        <i class="fas fa-user-edit fa-fw faicon"></i>
+        <ion-text> Edit Profile</ion-text>
+      </ion-item>
+      <!-- <ion-item  (ionChange)="toggleTheme($event)" id="toggle_theme">
+          <ion-toggle slot="start" checked={{themevalue}}>
+          </ion-toggle>
+          <ion-text color="medium"> medium Mode</ion-text> 
+        </ion-item> -->
+
+      <!-- <ion-item  detail>
+          <i class="fas fa-calendar-week fa-fw faicon"></i><ion-text > Total Appointment</ion-text>
+        </ion-item>  -->
+      <ion-item detail routerLink="/addmaster" detail *ngIf="is_admin">
+        <i class="fas fa-user-plus fa-fw faicon"></i>
+        <ion-text> Add Doctor & Hospital</ion-text>
+      </ion-item>
+      <ion-item detail routerLink="/timemaster" detail>
+        <i class="fas fa-clock fa-fw faicon"></i>
+        <ion-text> Manage Time Slot</ion-text>
+      </ion-item>
+      <ion-item routerLink="/appointment-setting" detail>
+        <i class="fas fa-cog fa-fw faicon"></i>
+        <ion-text>Appointment Settings</ion-text>
+      </ion-item>
+      <ion-item routerLink="/addleave" detail>
+        <i class="fas fa-calendar-day fa-fw faicon"></i>
+        <ion-text>Add Leave Days</ion-text>
+      </ion-item>
+      <!-- <ion-item  detail>
+          <i class="fas fa-folder-plus fa-fw faicon"></i><ion-text > Reports</ion-text>
+        </ion-item> -->
+
+      <ion-item routerLink="/feedback" detail>
+        <i class="fas fa-pen-fancy fa-fw faicon"></i>
+        <ion-text> Feedback</ion-text>
+      </ion-item>
+      <ion-item detail (click)="socialshare()">
+        <i class="fas fa-share-alt fa-fw faicon"></i>
+        <ion-text> Share App</ion-text>
+      </ion-item>
+      <ion-item detail (click)="open_playstore()">
+        <i class="fas fa-star fa-fw faicon"></i>
+        <ion-text> Rate App</ion-text>
+      </ion-item>
+      <ion-item (click)="sign_out()" detail>
+        <i class="fas fa-sign-out-alt fa-fw faicon"></i>
+        <ion-text> Log Out</ion-text>
+      </ion-item>
+    </ion-list>
+  </ion-row>
+
+  <div class="first"></div>
+  <div class="second"></div>
+
+  <app-footer></app-footer>
+
+</ion-content>

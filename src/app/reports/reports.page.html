@@ -1,0 +1,40 @@
+
+
+<ion-content [scrollEvents]="true" class="container">  
+  <ion-row class="custom_toolbar">
+    <ion-toolbar color="light_background">
+      <ion-title class=" header_title text-center">
+        <ion-icon name="arrow-back-outline" routerLink="/"></ion-icon>
+  
+       <span class="header_span">Reports</span> 
+      </ion-title>
+    </ion-toolbar>
+    </ion-row>
+  <ion-grid>
+    <!-- <ion-row class="gallery_div" *ngIf="contentLoaded">
+      <ion-col sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let item of ['441555585','1568619105','831228756','969412326','441555585','799022880','831228756','969412326',
+      '441555585','799022880','831228756','969412326','441555585','1568619105','831228756','969412326']">
+        <div class="img-wrapper" [style.background-image]="'url(assets/images/' + item + '.jpg)'">
+          <ion-text class="category_name">
+            Category Name
+          </ion-text>  </div>
+          
+        </ion-col>
+  </ion-row>
+  
+  <ion-row class="gallery_div" *ngIf="!contentLoaded">
+    <ion-col sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let item of [].constructor(14)">
+      <ion-skeleton-text class="img-wrapper" animated style="width: 80%"></ion-skeleton-text>
+        
+      </ion-col>
+</ion-row> -->
+
+<app-footer></app-footer>
+
+<ion-row>
+  <div class="back-to-top-btn" >
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </div>
+</ion-row>
+</ion-grid>
+</ion-content>

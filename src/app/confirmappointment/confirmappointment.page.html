@@ -1,0 +1,39 @@
+<ion-content [scrollEvents]="true">
+  <ion-grid class="padding_bottom">
+    <ion-row class="custom_toolbar">
+      <ion-toolbar color="light_background">
+        <span class="header_span" routerLink="/opd">
+          <i class="fas fa-angle-left fa-fw"></i>
+        </span>
+      </ion-toolbar>
+    </ion-row>
+
+    <ion-row class="main">
+      <ion-col size="12">
+        <div class="image_container">
+          <div class="success-animation">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12" class="confirmed">
+        <h3>Confirmed</h3>
+        <ion-text>You can find appointment details in OPD section.</ion-text>
+
+      </ion-col>
+      <ion-col size="6">
+        <ion-button size="default" expand="block" routerLink="/dashboard"> Back to home
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button size="default" expand="block" routerLink="/opd"> OPD
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

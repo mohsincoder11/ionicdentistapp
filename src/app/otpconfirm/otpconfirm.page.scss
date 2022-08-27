@@ -1,0 +1,70 @@
+* {
+    font-family: 'Nunito Sans', sans-serif;
+  }
+  
+  .form {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+  
+  .last_row {
+    padding-left: 2vw;
+  padding-right: 2vw;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  
+  .image_container {
+    text-align: center;
+    img {
+      height: 25vh;
+      width: 25vh;
+    }
+  }
+  
+  h2 {
+    font-weight: 400;
+    line-height: 14px;
+    margin-left: 20px;
+  }
+  
+  p {
+    margin-left: 20px;
+    color: var(--ion-color-newcolor);
+    font-size: 0.8em;
+  }
+  
+  .userinput {
+    display: flex;
+    justify-content: center;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+  
+  input {
+    margin: 10px;
+    height: 35px;
+    width: 20%;
+    border: none;
+    border-bottom: 1px solid var(--ion-color-medium2);
+    // border-radius 5px;
+    text-align: center;
+    font-size: 1.1rem;
+    background: var(--ion-color-light);
+    color: var(--ion-color-medium);
+  }
+  
+  input.focus_class {
+      border-bottom: 2px solid var(--ion-color-primary);
+      transition: 0.5s ease-in-out;
+  }
+  
+  input:focus {
+      border-bottom: 2px solid var(--ion-color-primary);
+      transition: 0.4s ease-in-out;
+  }
+  .error_msg{
+      color:var(--ion-color-danger);
+  }

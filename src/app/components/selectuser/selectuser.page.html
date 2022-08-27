@@ -1,0 +1,81 @@
+<ion-content>
+  <ion-grid class="padding_cs">
+    <ion-row>
+      <ion-col size="11">
+        <span class="select_label">Select user</span>
+      </ion-col>
+      <ion-col size="1">
+        <span class="cross_icon" (click)="dismiss()"><i class="fas fa-times"></i></span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="pt-2">
+      <div class="search_div">
+        <ion-input placeholder="Search Patient using name or number" (ionInput)="get_patient_member($event)"
+          id="search">
+        </ion-input>
+        <ion-icon name="search">
+        </ion-icon>
+      </div>
+    </ion-row>
+
+    <ion-row *ngIf="!family_member_load">
+      <div class="calender_Date_div scrollbar" scrollX="true">
+        <span *ngFor="let f of [].constructor(8);" [ngClass]="['calender_Date']">
+          <ion-label class="calender_day">
+            <img src="assets/avatar/skeleton_avatar.png" alt="">
+            <span class="date_in">
+              <p>
+                <ion-skeleton-text animated></ion-skeleton-text>
+              </p>
+            </span>
+          </ion-label>
+        </span>
+      </div>
+    </ion-row>
+
+    <ion-row *ngIf="family_member_load">
+      <div class="calender_Date_div scrollbar" scrollX="true">
+        <span *ngFor="let f of random_patient;let i=index;" [ngClass]="['calender_Date']" id="day{{i+1}}">
+          <ion-label class="calender_day" id="border{{f.id}}" (click)="select_member(f.id)">
+            <img src="{{url.patient_image}}/{{f.image}}" alt="" *ngIf="f.image">
+            <img src="assets/avatar/skeleton_avatar.png" alt="" *ngIf="!f.image">
+            <span class="checkbbox" id="checkbox{{f.id}}"><i class="fas fa-check-circle fa-fw"></i></span>
+            <span class="date_in">
+              <p>
+                <span *ngIf="f.id!=session_id"> {{f.f_name}}</span>
+                <span *ngIf="f.id==session_id">You</span>
+              </p>
+            </span>
+          </ion-label>
+        </span>
+      </div>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col size="12" class="no_pad" *ngFor="let f of patient_member_list;let i=index;">
+        <ion-item lines="none">
+          <input type="radio" class="custom_radio" (click)="radioGroupChange($event)" id="{{f.id}}" name="select_user"
+            value="{{f.id}}">
+          <label for="{{f.id}}">{{f.f_name}} {{f.l_name}}</label><br>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+    <span class="error_calss" *ngIf="select_user">Select user</span>
+
+    <ion-row>
+      <ion-col size="12" class="padding_top">
+        <ion-button expand="block" class="select_user_button" (click)="confirm_appointment()"> Confirm Booking
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <div class="add_button_plus" (click)="goto_managemember()">
+        <i class="fas fa-user-plus fa-fw "></i>
+      </div>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

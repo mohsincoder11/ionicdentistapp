@@ -1,0 +1,248 @@
+<ion-content [scrollEvents]="true" class="container">
+  <ion-row class="custom_toolbar">
+    <ion-toolbar color="light_background">
+      <span class="header_span" routerLink="/profilepage">
+        <i class="fas fa-angle-left fa-fw"></i>
+      </span>
+    </ion-toolbar>
+  </ion-row>
+
+  <div class="login_container">
+
+    <ion-row class="shedule_button">
+      <ion-col size="6" class="col" id="hospital" (click)="switch_view('hospital')">
+        Add Hospital
+      </ion-col>
+      <ion-col size="6" class="col" id="doctor" (click)="switch_view('doctor')">
+        Add Doctor
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="visibility" id="visibility_doctor">
+
+        <div class="form ion-text-center">
+          <form #doctorform="ngForm">
+            <ion-row>
+              <ion-input type="text" hidden="true" ngModel name="doctor_update_id" value="{{doctor_data.id}}">
+              </ion-input>
+              <ion-col size="6">
+                <ion-item lines="none">
+                  <ion-label position="floating"> First Name</ion-label>
+                  <ion-input type="text" ngModel name="f_name" value="{{doctor_data.f_name}}" required f_name>
+                  </ion-input>
+                  <ion-text class="error_msg" color="danger" *ngIf="f_name"> This field is required</ion-text>
+                </ion-item>
+              </ion-col>
+
+              <ion-col size="6">
+                <ion-item lines="none">
+                  <ion-label position="floating"> Last Name</ion-label>
+                  <ion-input type="text" ngModel name="l_name" value="{{doctor_data.l_name}}" required l_name>
+                  </ion-input>
+                  <ion-text class="error_msg" color="danger" *ngIf="l_name"> This field is required</ion-text>
+                </ion-item>
+              </ion-col>
+
+              <ion-col size="12">
+                <ion-item lines="none">
+                  <ion-label position="floating"> Specialization</ion-label>
+                  <ion-input type="text" ngModel name="specialization" value="{{doctor_data.specialization}}" required
+                    username></ion-input>
+                  <ion-text class="error_msg" color="danger" *ngIf="specialization"> This field is required</ion-text>
+                </ion-item>
+              </ion-col>
+              <ion-col size="12">
+                <ion-item lines="none" class="full_width">
+                  <ion-label position="floating">Select Hospital</ion-label>
+                  <ion-select placeholder="Select Hospital" multiple="true" [(ngModel)]="hospital_id_array"
+                    id="hospital_id" name="hospital_id">
+                    <ion-select-option *ngFor="let n of hospital_list;let i=index" value="{{n.id}}">
+                      {{n.hospital_name}}
+                    </ion-select-option>
+                  </ion-select>
+                  <ion-text class="error_msg" color="danger" *ngIf="hospital_id"> Select atleast one hospital</ion-text>
+
+                </ion-item>
+              </ion-col>
+              <ion-col size="12">
+                <ion-item lines="none">
+                  <ion-label position="floating"> Mobile No</ion-label>
+                  <ion-input type="number" ngModel name="mobile" value="{{doctor_data.mobile}}" required mobile>
+                  </ion-input>
+                  <ion-text class="error_msg" color="danger" *ngIf="mobile"> This field is required</ion-text>
+                  <ion-text class="error_msg" color="danger" *ngIf="mobile_length"> Mobile number should be 10 digit.
+                  </ion-text>
+                  <ion-text class="error_msg" color="danger" *ngIf="mobile_present"> Mobile number already registered.
+                  </ion-text>
+                </ion-item>
+              </ion-col>
+
+              <ion-col size="12">
+                <ion-item lines="none">
+                  <ion-label position="floating"> Email</ion-label>
+                  <ion-input type="text" ngModel name="email" value="{{doctor_data.email}}" email></ion-input>
+                </ion-item>
+              </ion-col>
+
+              <ion-col size="12" id="hospital_item">
+                <ion-item lines="none">
+                  <ion-label position="floating">Password</ion-label>
+                  <ion-input type="text" ngModel name="password" value="{{doctor_data.password}}" required> </ion-input>
+                  <ion-text class="error_msg" color="danger" *ngIf="password"> This field is required.</ion-text>
+
+                </ion-item>
+              </ion-col>
+
+            </ion-row>
+
+            <ion-row class="last_row2">
+              <ion-col>
+                <ion-button expand="block" (click)="add_doctor(doctorform)"> <span id="button_text2">Add Doctor</span>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </form>
+        </div>
+        <div class="table ion-text-center">
+          <table>
+            <tr>
+              <th>Doctor Name</th>
+              <th>Action</th>
+            </tr>
+            <tr *ngFor="let n of doctor_list;let i=index">
+              <td>{{n.f_name}} {{n.l_name}}, <span class="spec">{{n.specialization}}</span></td>
+              <td>
+                <span (click)="delete_doctor(n.id)"><i class="fas fa-trash delete"></i></span>
+                &nbsp;
+                <span (click)="edit_doctor(n.id)"><i class="fas fa-edit warning"></i></span>
+              </td>
+            </tr>
+          </table>
+          <span class="nothing_found" *ngIf="no_record_d"> No records found.</span>
+
+        </div>
+      </ion-col>
+
+
+      <ion-col size="12" class="visibility" id="visibility_hospital">
+        <div class="form ion-text-center ">
+          <form #hospitalform="ngForm">
+
+            <ion-input type="text" hidden="true" ngModel name="hospital_update_id" value="{{hospital_data.id}}">
+            </ion-input>
+            <ion-item lines="none">
+              <ion-label position="floating">Hospital Name</ion-label>
+              <ion-input name="hospital_name" value="{{hospital_data.hospital_name}}" ngModel required></ion-input>
+              <ion-text class="error_msg" color="danger" *ngIf="hospital_name">
+                This field is required
+              </ion-text>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label position="floating">Address</ion-label>
+              <ion-input name="address" value="{{hospital_data.address}}" ngModel required></ion-input>
+              <ion-text class="error_msg" color="danger" *ngIf="address"> This field is required</ion-text>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label position="floating">City</ion-label>
+              <ion-input name="city" value="{{hospital_data.city}}" ngModel required></ion-input>
+              <ion-text class="error_msg" color="danger" *ngIf="city"> This field is required</ion-text>
+            </ion-item>
+
+            <ion-row class="last_row">
+              <ion-col>
+                <ion-button expand="block" (click)="add_hospital(hospitalform)"><span id="button_text">Add
+                    Hospital</span>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+
+          </form>
+        </div>
+
+        <div class="table ion-text-center">
+          <table>
+            <tr>
+              <th>Hospital Name</th>
+              <th>Action</th>
+
+            </tr>
+            <tr *ngFor="let n of hospital_list;let i=index">
+              <td>{{n.hospital_name}}, <span class="spec">{{n.city}}</span> </td>
+              <td>
+
+                <span (click)="delete_hospital(n.id)"><i class="fas fa-trash delete"></i></span>
+                &nbsp;
+                <span (click)="edit_hospital(n.id)"><i class="fas fa-edit warning"></i></span>
+              </td>
+            </tr>
+          </table>
+          <span class="nothing_found" *ngIf="no_record_h"> No records found.</span>
+
+        </div>
+      </ion-col>
+
+
+    </ion-row>
+  </div>
+
+  <div id="snackbar"> <span id="snackbar_error"></span></div>
+
+
+  <div class="loader" *ngIf="loader_visibility">
+    <img src="assets/icon/loader.gif" alt="">
+  </div>
+
+  <div class="custom_modal" id="doctor_modal">
+    <ion-card class="skeletoncard">
+      <ion-row class="cardtop">
+        <ion-col size="12">
+          <i class="fas faicon_col fa-trash-alt"></i>
+        </ion-col>
+        <ion-col size="12">
+          <div class="doc_name">Delete "Doctor"? </div>
+          <div class="doc_category">All the data related to doctor including appointments will be deleted! </div>
+
+        </ion-col>
+      </ion-row>
+      <ion-row class="opd_card_footer">
+        <ion-col size="6" class="cancel_btn" (click)="close_modal('doctor_modal')">
+          <ion-label expand="block" size="small">Cancel</ion-label>
+        </ion-col>
+        <ion-col size="6" class="delete_btn" (click)="confirm_delete_doctor()">
+          <ion-label expand="block" size="small">
+            Delete
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+  <div class="custom_modal" id="hospital_modal">
+    <ion-card class="skeletoncard">
+      <ion-row class="cardtop">
+        <ion-col size="12">
+          <i class="fas faicon_col fa-trash-alt"></i>
+        </ion-col>
+        <ion-col size="12">
+          <div class="doc_name">Delete "Hospital"? </div>
+          <div class="doc_category">All the data related to hospital including doctors and their appointment will be
+            deleted! </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="opd_card_footer">
+        <ion-col size="6" class="cancel_btn" (click)="close_modal('hospital_modal')">
+          <ion-label expand="block" size="small">Cancel</ion-label>
+        </ion-col>
+        <ion-col size="6" class="delete_btn" (click)="confirm_delete_hospital()">
+          <ion-label expand="block" size="small">
+            Delete
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+</ion-content>

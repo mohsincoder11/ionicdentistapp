@@ -1,0 +1,112 @@
+<ion-content class="main_container">
+  <ion-row class="custom_toolbar">
+    <ion-toolbar color="light_background">
+      <span class="header_span" routerLink="/opd">
+        <i class="fas fa-angle-left fa-fw"></i>
+      </span>
+    </ion-toolbar>
+  </ion-row>
+
+  <ion-row>
+    <ion-card class="skeletoncard first_card">
+      <ion-card-content>
+        <ion-row>
+          <ion-col size="12">
+            <div class="uhid_text">Name : {{patient_data.f_name}} {{patient_data.l_name}}
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row class="section collapsed">
+          <ion-col size="6">
+            <ion-text><strong>Age :</strong> {{patient_data.dob | ageconvert}} </ion-text>
+          </ion-col>
+          <ion-col size="6">
+            <ion-text><strong>Gender :</strong> {{patient_data.gender}}</ion-text>
+          </ion-col>
+
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
+
+  <ion-row class="booking_history_label">
+    <h3>Add Details</h3>
+  </ion-row>
+  <ion-row>
+    <ion-card class="skeletoncard animate_card">
+      <ion-card-content>
+
+        <form #add_details="ngForm" class="form">
+            <ion-row>
+              <ion-col size="12">
+                <ion-item lines="none">
+                  <ion-label position="floating"> Disease Description</ion-label>
+                  <ion-input type="text" name="comment" required></ion-input>
+                  <ion-text class="error_msg" color="danger" > This field is required</ion-text>
+                </ion-item>
+              </ion-col> 
+            </ion-row>
+              <ion-row class="last_row footerbtn">
+
+                <ion-col size="12">
+                  <ion-button color="secondary" expand="block" size="medium" >
+                    Add Details
+                  </ion-button>
+                </ion-col>
+             
+            </ion-row>
+        </form>
+      </ion-card-content>
+
+    </ion-card>
+  </ion-row>
+
+  <ion-row class="booking_history_label">
+    <h3>Booking History</h3>
+  </ion-row>
+
+  <ion-row>
+    <ion-card class="skeletoncard animate_card" *ngFor="let ph of patient_history;let i=index;">
+      <ion-card-content>
+        <ion-row>
+          <ion-col size="12">
+            <div class="uhid_text">Appointment Id : {{ph.appointment_id}}
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row class="section collapsed">
+
+          <ion-col size="6">
+            <ion-text><strong>Date :</strong> {{ph.date}} </ion-text>
+          </ion-col>
+          <ion-col size="6">
+            <ion-text><strong>Visit Type :</strong> {{ph.visit_type}}</ion-text>
+          </ion-col>
+          <ion-col size="12" *ngIf="ph.comment">
+            <ion-text><strong>Disease Description :</strong> {{ph.comment}}</ion-text>
+          </ion-col>
+          <ion-col size="12" class="history_image" *ngIf="ph.image">        
+            <ion-img-viewer *ngFor="let image of ph.image.split(',');let j=index" class="his_img" title="{{ph.appointment_id}}" text="{{ph.comment}}" scheme="light"
+              src="{{image}}">
+            </ion-img-viewer>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
+
+  <ion-row *ngIf="no_history">
+    <ion-col size="12">
+      <div class="image_container">
+        <img src="assets/icon/no_member.svg" alt="">
+      </div>
+    </ion-col>
+    <ion-col size="12" class="not_found">
+      <ion-text>No history found for this patient.</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <div class="loader" *ngIf="loader_visibility">
+    <img src="assets/icon/loader.gif" alt="">
+  </div>
+</ion-content>

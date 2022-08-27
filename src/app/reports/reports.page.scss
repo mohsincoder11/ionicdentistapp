@@ -1,0 +1,33 @@
+*{
+    font-family: 'Nunito', sans-serif;
+  }
+
+ion-grid{
+    padding-bottom: 18%; 
+
+}
+
+
+.img-wrapper {
+    min-height: 90px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+.col_size_4{
+    border-radius: 10px;
+    border: 2px solid rgb(233, 233, 233);
+            margin-bottom: 1%;
+            background: red;
+
+}
+.category_name{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 9%;
+    margin-left: 5%;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+}

@@ -1,0 +1,137 @@
+<ion-content>
+  <ion-row class="custom_toolbar">
+    <ion-toolbar color="light_background">
+      <span class="header_span" routerLink="/doctorlist">
+        <i class="fas fa-angle-left fa-fw"></i>
+      </span>
+
+      <!-- <span slot="end" class="sharebutton" >
+        <i class="fas fa-share-alt fa-fw"></i>
+      </span> -->
+    </ion-toolbar>
+  </ion-row>
+
+  <ion-row class="bottom_border">
+    <ion-col size="4">
+      <div class="ion-text-center login_image">
+        <img src="assets/avatar/doctor_avatar.png" alt="" *ngIf="!doctor_data.image">
+        <img src="{{url.doctor_image}}/{{doctor_data.image}}" alt="" *ngIf="doctor_data.image">
+      </div>
+    </ion-col>
+    <ion-col size="8" class="doc_name_div">
+
+      <span class="username" *ngIf="doctor_data.f_name">Dr. {{doctor_data.f_name}} {{doctor_data.l_name}}</span>
+      <span class="username" *ngIf="!doctor_data.f_name">
+        <ion-skeleton-text style="width:70%" animated></ion-skeleton-text>
+      </span>
+      <span class="useremail" *ngIf="doctor_data.specialization">{{doctor_data.specialization}}</span>
+      <span class="useremail" *ngIf="!doctor_data.specialization">
+        <ion-skeleton-text style="width:30%" animated></ion-skeleton-text>
+      </span>
+
+      <ion-row class="col_no_pad">
+        <ion-col size="6">
+          <p>Patients : <span>{{doctor_data.total_appointment}} </span></p>
+        </ion-col>
+        <ion-col size="6">
+          <p>Rating : <span><span class="star_color"><i class="fas fa-star"></i></span>
+              {{doctor_data.total_rating/doctor_data.patient_count || 0 | truncaterating}}</span></p>
+
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-calendar class="ion_calendar" [(ngModel)]="appointment_date" name="appointment_date"
+      (change)="get_date($event)" [type]="type" [format]="'YYYY-MM-DD'">
+    </ion-calendar>
+    <ion-text class="error_msg left_pad" color="danger" *ngIf="appointment_date_error"> Plaese select date.</ion-text>
+    <ion-text class="error_msg left_pad" color="danger" *ngIf="doctor_on_leave">Doctor on leave. Plaese choose another
+      date.</ion-text>
+
+  </ion-row>
+  <div class="last_row">
+
+    <ion-row class="time_div">
+      <div class="month_year_div">
+        <span class="month_year_label"> Select Hospital</span>
+      </div>
+      <ion-select placeholder="Select Hospital" ngModel name="hospital_id" (ionChange)="send_hospital_id($event)">
+        <ion-select-option *ngFor="let h of hospital_list;" value="{{h.id}}">{{h.hospital_name}}, {{h.address}}
+        </ion-select-option>
+      </ion-select>
+      <ion-text class="error_msg left_pad" color="danger" *ngIf="select_hospital">Select hospital.</ion-text>
+    </ion-row>
+    <ion-row class="time_div">
+      <div class="month_year_div">
+        <ion-row class="shedule_button">
+          <ion-col size="4" class="col" id="colmorning" (click)="hide_show_time_slot('morning')">
+            Morning
+          </ion-col>
+          <ion-col size="4" class="col" id="colafternoon" (click)="hide_show_time_slot('afternoon')">
+            Afternoon
+          </ion-col>
+          <ion-col size="4" class="col" id="colevening" (click)="hide_show_time_slot('evening')">
+            Evening
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="time_tab " id="time_tabmorning" *ngIf="time_slot_array">
+        <span *ngFor="let time of time_slot_array.morning" 
+          [ngClass]="[time.status==1 ? 'time_label' : 'time_label hide']" id="time{{time.id}}"
+          (click)="active_time(time.id,time.time)">
+          {{time.time}} </span>
+        <span class="no_slot" *ngIf="no_slot_morning"> No slot available.</span>
+
+
+      </div>
+    </ion-row>
+
+    <ion-row class="time_div">
+
+      <div class="time_tab hide" id="time_tabafternoon" *ngIf="time_slot_array">
+        <span *ngFor="let time of time_slot_array.afternoon" 
+          [ngClass]="time.status==1 ? 'time_label' : 'time_label hide'" id="time{{time.id}}"
+          (click)="active_time(time.id,time.time)">
+          {{time.time}} </span>
+        <span class="no_slot" *ngIf="no_slot_afternoon"> No slot available.</span>
+
+      </div>
+
+    </ion-row>
+
+    <ion-row class="time_div">
+      <div class="time_tab hide" id="time_tabevening" *ngIf="time_slot_array">
+        <span *ngFor="let time of time_slot_array.evening" 
+          [ngClass]="time.status==1 ? 'time_label ' : 'time_label hide'" id="time{{time.id}}"
+          (click)="active_time(time.id,time.time)">
+          {{time.time}} </span>
+        <span class="no_slot" *ngIf="no_slot_evening"> No slot available.</span>
+      </div>
+
+    </ion-row>
+    <ion-text class="error_msg left_pad" color="danger" *ngIf="select_time_error">Select time slot.</ion-text>
+    <ion-text class="error_msg left_pad" color="danger" *ngIf="passtime_not_allow">Can't select passed time slot'.</ion-text>
+
+  </div>
+
+
+  <ion-row class="footerbtn">
+    <ion-col size="12">
+      <ion-button expand="block" (click)="book_appointment()"> Proceed for appointment
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<div class="loader" *ngIf="loader_visibility">
+  <img src="assets/icon/loader.gif" alt="">
+</div>
+<!-- <ion-footer translucent="true" class="ion-no-border">
+    <ion-button color="primary" expand="block"  (click)="goTohome()">
+      Book An Appointment
+    </ion-button>
+</ion-footer> -->

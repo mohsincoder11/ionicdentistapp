@@ -24,3 +24,15 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.selectuser_modal .modal-wrapper {
+    top: 8%;
+    height: 100%;
+    border-radius: 15px;
+    position: absolute;
+    display: block;
+    background: var(--ion-color-cardback);
+    
+  }
+
+  

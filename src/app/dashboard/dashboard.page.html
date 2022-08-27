@@ -1,0 +1,141 @@
+<ion-row class="custom_toolbar">
+  <ion-toolbar color="light_background">
+    <!-- <ion-buttons slot="start" class="header_title">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+    <ion-title class="header_title">
+      <img class="slider_image" src="assets/icon/header2.png" alt="">
+    </ion-title>
+  </ion-toolbar>
+</ion-row>
+
+
+
+
+
+
+<ion-content>
+  <ion-slides #slides pager="false" [options]="sliderOptions" (ionSlideDidChange)="slidesChanged(slides)"
+    (ionslidesDidLoad)="slidesChanged(slides)">
+
+    <ion-slide class="slide_s">
+      <ion-grid>
+        <div class="img-wrapper" [style.background-image]="'url(assets/slider_icon/img1.jpeg)'">
+        </div>
+      </ion-grid>
+    </ion-slide>
+
+    <ion-slide class="slide_s">
+      <ion-grid>
+        <div class="img-wrapper" [style.background-image]="'url(assets/slider_icon/img2.jpg)'">
+        </div>
+      </ion-grid>
+    </ion-slide>
+
+    <ion-slide class="slide_s">
+      <ion-grid>
+        <div class="img-wrapper" [style.background-image]="'url(assets/slider_icon/img3.jpg)'">
+        </div>
+      </ion-grid>
+    </ion-slide>
+
+    <ion-slide class="slide_s">
+      <ion-grid>
+        <div class="img-wrapper" [style.background-image]="'url(assets/slider_icon/img4.jpg)'">
+        </div>
+      </ion-grid>
+    </ion-slide>
+
+    <ion-slide class="slide_s">
+      <ion-grid>
+        <div class="img-wrapper" [style.background-image]="'url(assets/slider_icon/img5.jpg)'">
+        </div>
+      </ion-grid>
+    </ion-slide>
+
+  </ion-slides>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col size="6">
+
+        <div class="colordiv pink" routerLink="/opd">
+          <div class="icon">
+            <i class="fas fa-walking fa-fw"></i>
+          </div>
+          <div class="count">
+            {{walkin_count}}
+
+          </div>
+          <div class="description">
+            Today's walk in appointment
+          </div>
+        </div>
+      </ion-col>
+
+      <ion-col size="6">
+        <div class="colordiv blue" routerLink="/opd">
+          <div class="icon">
+            <i class="fas fa-globe fa-fw"></i>
+          </div>
+          <div class="count">
+            {{online_count }}
+          </div>
+          <div class="description">
+            Today's Online appointment
+          </div>
+        </div>
+      </ion-col>
+
+
+      <!-- <ion-col size="6" *ngIf="role=='admin'">
+        <div class="colordiv green">
+          <div class="icon">
+            <i class="fas fa-users fa-fw"></i>
+          </div>
+          <div class="description">
+            Total Register Patient
+          </div>
+          <div class="count">
+            {{patient_count}}
+          </div>
+        </div>
+      </ion-col> -->
+
+    </ion-row>
+
+    <ion-row class="chartrow">
+      <ion-col size="12">
+        <ion-card>
+          <span class="card_header">
+            <h4>Walk-in vs Daily Appointments</h4>
+          </span>
+          <ion-card-content>
+            <canvas id="doughnutChart"></canvas>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12">
+        <ion-card>
+          <span class="card_header">
+            <h4> Monthly Patient</h4>
+          </span>
+          <ion-card-content>
+            <canvas id="barchart"></canvas>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer></app-footer>
+
+
+  <div class="loader" *ngIf="loader_visibility">
+    <img src="assets/icon/loader.gif" alt="">
+  </div>
+  
+  <div id="internet_snackbar"> <span id="internet_error"></span></div>
+
+
+
+</ion-content>

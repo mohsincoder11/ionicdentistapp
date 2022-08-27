@@ -1,0 +1,126 @@
+<ion-content [scrollEvents]="true">
+  <ion-row class="custom_toolbar">
+    <ion-toolbar color="light_background">
+      <span class="header_span" routerLink="/profilepage">
+        <i class="fas fa-angle-left fa-fw"></i>
+      </span>
+    </ion-toolbar>
+  </ion-row>
+
+  <div class="container">
+    <div class="form ">
+      <form #user_profile_form="ngForm">
+
+        <ion-row>
+          <ion-col size="5.5">
+            <ion-item lines="none" class="full_width">
+              <ion-label position="floating">Select Doctor</ion-label>
+              <ion-select placeholder="Select doctor" ngModel name="doctor_id"
+                (ionChange)="get_hospital_of_doctor($event)">
+                <ion-select-option *ngFor="let n of doctor_list;let i=index" value="{{n.id}}">{{n.f_name}} {{n.l_name}}
+                </ion-select-option>
+              </ion-select>
+              <ion-text class="error_msg" color="danger" *ngIf="doctor_id"> This field is required</ion-text>
+
+            </ion-item>
+          </ion-col>
+          <ion-col size="5.5">
+            <ion-item lines="none" class="full_width">
+              <ion-label position="floating">Select Hospital</ion-label>
+              <ion-select placeholder="Select Hospital" ngModel name="hospital_id"
+                (ionChange)="send_hospital_id($event)">
+                <ion-select-option *ngFor="let h of hospital_list;" value="{{h.id}}">{{h.hospital_name}}
+                </ion-select-option>
+              </ion-select>
+              <ion-text class="error_msg" color="danger" *ngIf="hospital_id"> This field is required</ion-text>
+
+
+            </ion-item>
+          </ion-col>
+          <ion-col size="1" class="setting_icon" routerLink="/addmaster" *ngIf="is_admin">
+            <i class="fas fa-cog"></i>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <!-- <div class="month_year_div2">
+        <span class="month_year_label"> {{month_name}} {{current_year}}</span>
+      </div> -->
+          <div class="calender_Date_div scrollbar" scrollX="true">
+            <span *ngFor="let d of days;let i=index;" [ngClass]="['calender_Date']" (click)="active_Day(d.day)"
+              id="{{d.day}}">
+              <span>{{d.day}}</span>
+            </span>
+
+          </div>
+        </ion-row>
+
+        <ion-row class="time_div">
+          <div class="month_year_div">
+            <span class="month_year_label"> Morning</span>
+            <span class="month_year_label_setting " routerLink="/timemaster"><i class="fas fa-cog fa-fw"></i></span>
+          </div>
+
+          <div class="time_tab" *ngIf="time_slot_array">
+            <span *ngFor="let time of time_slot_array.morning"
+              [ngClass]="time.status==1 ? 'time_label active' : 'time_label'" id="time{{time.id}}"
+              (click)="active_time(time.id)">
+              {{time.time}} </span>
+          </div>
+        </ion-row>
+
+        <ion-row class="time_div">
+          <div class="month_year_div">
+            <span class="month_year_label"> Afternoon</span>
+            <span class="month_year_label_setting" routerLink="/timemaster"><i class="fas fa-cog fa-fw"></i></span>
+
+          </div>
+          <div class="time_tab" *ngIf="time_slot_array">
+            <span *ngFor="let time of time_slot_array.afternoon"
+              [ngClass]="time.status==1 ? 'time_label active' : 'time_label'" id="time{{time.id}}"
+              (click)="active_time(time.id)">
+              {{time.time}} </span>
+          </div>
+        </ion-row>
+
+        <ion-row class="time_div">
+          <div class="month_year_div">
+            <span class="month_year_label"> Evening</span>
+            <span class="month_year_label_setting" routerLink="/timemaster"><i class="fas fa-cog fa-fw"></i></span>
+
+          </div>
+          <div class="time_tab" *ngIf="time_slot_array">
+            <span *ngFor="let time of time_slot_array.evening"
+              [ngClass]="time.status==1 ? 'time_label active' : 'time_label'" id="time{{time.id}}"
+              (click)="active_time(time.id)">
+              {{time.time}} </span>
+          </div>
+        </ion-row>
+      </form>
+    </div>
+  </div>
+
+
+  <ion-row>
+    <ion-row class="prescription_footer_btn">
+      <ion-col size="12">
+        <ion-button expand="block" (click)="update_appointment_setting()"> Update Setting
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-row>
+
+
+
+
+
+
+  <div id="snackbar"> <span id="snackbar_error"></span></div>
+
+
+  <div class="loader" *ngIf="loader_visibility">
+    <img src="assets/icon/loader.gif" alt="">
+  </div>
+
+
+
+</ion-content>

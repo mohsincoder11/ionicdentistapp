@@ -1,0 +1,68 @@
+<ion-content [scrollEvents]="true">
+  <ion-grid class="padding_bottom">
+    <ion-row class="custom_toolbar">
+      <ion-toolbar color="light_background">
+        <span class="header_span" routerLink="/dashboard">
+          <i class="fas fa-angle-left fa-fw"  ></i>
+        </span>
+    </ion-toolbar>
+    </ion-row>
+    
+    <ion-row class="pt-2">
+      <div class="search_div">
+        <ion-input placeholder="Search doctor" [(ngModel)]="search_doctor"
+          id="search">
+        </ion-input>
+        <ion-icon name="search">
+        </ion-icon>
+      </div>
+    </ion-row>
+
+ <ion-row class="visibility" *ngIf="doctor_list">
+  <ion-card  class="skeletoncard animate_card" *ngFor="let d of doctor_list | filter:search_doctor; let i=index;" >           
+    <ion-card-content>          
+      <ion-row class="cardtop">   
+        <ion-col size="2">
+          <div class="uhid_text">
+            <img src="assets/avatar/skeleton_avatar.png" alt="" *ngIf="!d.image">
+            <img src="{{url.doctor_image}}/{{d.image}}" alt="" *ngIf="d.image" >
+
+          </div> 
+        </ion-col>          
+        <ion-col size="8">
+           <div class="doc_name">Dr. {{d.f_name}} {{d.l_name}} </div> 
+           <div class="doc_category">{{d.specialization}}</div>
+        </ion-col>
+        <ion-col size="2">
+          <div class="doc_Rating"><span class="star_color"><i class="fas fa-star"></i></span> {{d.total_rating/d.patient_count || 0 }} </div> 
+
+        </ion-col>              
+      </ion-row>
+
+      <ion-row class="opd_card_footer">       
+        <ion-col size="12" class="tooltip2">
+          <ion-button expand="block" size="small" (click)="goto_doctor_details(d.id)">Book Appointment</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  </ion-row>
+      
+  </ion-grid>
+  <!-- <app-footer></app-footer> -->
+ 
+  
+
+  
+  <div class="loader" *ngIf="loader_visibility">
+    <img src="assets/icon/loader.gif" alt="">
+  </div>
+
+    <ion-row>
+    <div class="back-to-top-btn" *ngIf="backToTop" (click)="gotToTop()">
+      <ion-icon name="chevron-up-outline"></ion-icon>
+    </div>
+  </ion-row>
+  <app-footer></app-footer>
+
+</ion-content>

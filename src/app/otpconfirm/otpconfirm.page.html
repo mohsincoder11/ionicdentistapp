@@ -1,0 +1,40 @@
+<ion-content class="main_container">
+  <ion-row class="custom_toolbar">
+    <ion-toolbar color="light_background">
+      <span class="header_span" routerLink="/login">
+        <i class="fas fa-angle-left fa-fw"></i>
+      </span>
+    </ion-toolbar>
+  </ion-row>
+
+  <div class="image_container">
+    <img  src="assets/icon/otp2.svg" alt="">
+  </div>
+
+  <div>
+    <form #form_login="ngForm" class="form">
+      <ion-grid>
+        <h2>OTP Verification</h2>
+        <p>Enter OTP sent to <b>{{mobile_number}}</b> </p>
+        <ion-row>
+          <div class="userinput">
+            <input type="text" maxlength="1" id="1" (keyup)="focusnext($event)">
+            <input type="text" maxlength="1" id="2" (keyup)="focusnext($event)">
+            <input type="text" maxlength="1" id="3" (keyup)="focusnext($event)">
+            <input type="text" maxlength="1" id="4" (keyup)="focusnext($event)">
+          </div>
+        </ion-row>
+          <p class="error_msg" *ngIf="otp_error">Enter valid OTP</p>
+
+        <ion-row class="last_row">
+          <ion-col size="12">
+            <ion-button color="secondary" expand="block" (click)="verify_otp()">
+              Verify Otp
+            </ion-button>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>

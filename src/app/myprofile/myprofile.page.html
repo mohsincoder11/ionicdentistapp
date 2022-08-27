@@ -1,0 +1,116 @@
+<ion-content class="main_container">
+  <ion-row class="custom_toolbar">
+    <ion-toolbar color="light_background">
+      <span class="header_span" routerLink="/profilepage">
+        <i class="fas fa-angle-left fa-fw"></i>
+      </span>
+    </ion-toolbar>
+  </ion-row>
+  <div class="image_container">
+    <label class="fa_icon_span" for="file-input">
+      <i class="fas fa-camera-retro fa-fw faicon"></i></label>
+    <img src="{{imgURl}}" id="profile_img" alt="">
+    <input type="file" id="file-input" (change)="selectImage($event)">
+
+  </div>
+
+
+  <div>
+    <form #update_form="ngForm" class="form">
+      <ion-grid>
+        <ion-row class="main_row">
+          <ion-col size="6">
+            <ion-item lines="none">
+              <ion-label position="floating"> First Name</ion-label>
+              <ion-input type="text" [(ngModel)]="session_data.f_name" name="f_name" required></ion-input>
+              <ion-text class="error_msg" color="danger" *ngIf="f_name"> This field is required</ion-text>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item lines="none">
+              <ion-label position="floating"> Last Name</ion-label>
+              <ion-input type="text" [(ngModel)]="session_data.l_name" name="l_name" required></ion-input>
+              <ion-text class="error_msg" color="danger" *ngIf="l_name"> This field is required</ion-text>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size="12">
+            <ion-list>
+              <ion-radio-group (ionChange)="radioGroupChange($event)" value="{{session_data.gender}}">
+                <ion-list-header class="gender_header">
+                  <ion-label>Gender</ion-label>
+                </ion-list-header>
+                <ion-row>
+                  <ion-col size="6" class="no_pad">
+                    <ion-item lines="none">
+                      <ion-label>Male</ion-label>
+                      <ion-radio slot="start" name="gender" id="Male" value="Male"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+
+                  <ion-col size="6" class="no_pad">
+                    <ion-item lines="none">
+                      <ion-label>Female</ion-label>
+                      <ion-radio slot="start" name="gender" id="Female" value="Female"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-text class="error_msg left_pad" color="danger" *ngIf="gender"> This field is required</ion-text>
+                </ion-row>
+              </ion-radio-group>
+            </ion-list>
+          </ion-col>
+
+          <ion-col size="12">
+            <ion-item lines="none">
+              <ion-label position="floating">Specialization</ion-label>
+              <ion-input type="text" [(ngModel)]="session_data.specialization" ngModel name="specialization" required>
+              </ion-input>
+              <ion-text class="error_msg" color="danger" *ngIf="specialization"> This field is required</ion-text>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size="12">
+            <ion-item lines="none">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="email" [(ngModel)]="session_data.email" ngModel name="email" required></ion-input>
+              <ion-text class="error_msg" color="danger" *ngIf="email"> This field is required</ion-text>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size="12">
+            <ion-item lines="none">
+              <ion-label position="floating">Date of birth</ion-label>
+              <ion-datetime value="{{session_data.dob}}" ngModel displayFormat="DD-MM-YYYY" name="dob"></ion-datetime>
+              <ion-text class="error_msg" color="danger" *ngIf="dob"> This field is required</ion-text>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size="12">
+            <ion-item lines="none">
+              <ion-label position="floating">Description</ion-label>
+              <ion-textarea type="text" [(ngModel)]="session_data.description" ngModel name="description" required>
+              </ion-textarea>
+              <ion-text class="error_msg" color="danger" *ngIf="description"> This field is required</ion-text>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="last_row footerbtn">
+          <ion-col size="12">
+            <ion-button color="secondary" expand="block" (click)="update_user(update_form)">
+              Update Profile
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </form>
+  </div>
+  <div id="snackbar"> <span id="snackbar_error"></span></div>
+
+
+  <div class="loader" *ngIf="loader_visibility">
+    <img src="assets/icon/loader.gif" alt="">
+  </div>
+
+</ion-content>

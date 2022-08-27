@@ -1,0 +1,108 @@
+<ion-content class="main_container">
+  <ion-row class="custom_toolbar">
+    <ion-toolbar color="light_background">
+      <span class="header_span" routerLink="/opd">
+        <i class="fas fa-angle-left fa-fw"  ></i>
+      </span>
+  </ion-toolbar>
+  </ion-row>
+  <div class="image_container">
+    <img src="assets/icon/family_member.svg" alt="">
+
+  </div>
+
+
+  <div>
+    <form #form_register="ngForm" class="form">
+      <ion-grid>
+
+        <h2>New Member ?</h2>
+        <p>Fill this form to add your new member.</p>
+        <ion-row>
+
+                <ion-col size="6">
+            <ion-item lines="none">
+              <ion-label position="floating"> First Name</ion-label>
+              <ion-input type="text" ngModel name="f_name" required f_name></ion-input>
+              <ion-text class="error_msg" color="danger" *ngIf="f_name"> This field is required</ion-text>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size="6">
+            <ion-item lines="none">
+              <ion-label position="floating"> Last Name</ion-label>
+              <ion-input type="text" ngModel name="l_name" required l_name></ion-input>
+              <ion-text class="error_msg" color="danger" *ngIf="l_name"> This field is required</ion-text>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size="12">
+            <ion-list >
+              <ion-radio-group value="biff" (ionChange)="radioGroupChange($event)" value="Male">
+                <ion-list-header class="gender_header">
+                  <ion-label>Gender</ion-label>
+                </ion-list-header>
+                <ion-row>
+                <ion-col size="6" class="no_pad">
+                 <ion-item lines="none">
+                  <ion-label>Male</ion-label>
+                  <ion-radio slot="start"  name="gender"   id="Male" value="Male"></ion-radio>
+                </ion-item>
+            </ion-col>
+
+            <ion-col size="6" class="no_pad">
+                <ion-item lines="none">
+                  <ion-label>Female</ion-label>
+                  <ion-radio slot="start"  name="gender" id="Female" value="Female"></ion-radio>
+                </ion-item>
+              </ion-col>
+              </ion-row>
+               </ion-radio-group>    
+            </ion-list>    
+          </ion-col>
+
+          <ion-col size="12">        
+            <ion-item lines="none">
+              <ion-label position="floating">Date of birth</ion-label>
+              <ion-datetime [(ngModel)]="currentDate" displayFormat="DD-MM-YYYY" name="dob" ></ion-datetime>
+              <ion-text class="error_msg"  color="danger" *ngIf="dob"> This field is required</ion-text>           
+            </ion-item>
+          </ion-col>   
+          
+          <ion-col size="12">
+            <ion-item lines="none">
+              <ion-label position="floating"> Mobile</ion-label>
+              <ion-input type="number" ngModel name="mobile" required mobile></ion-input>
+              <ion-text class="error_msg" color="danger" *ngIf="mobile"> This field is required</ion-text>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size="12">
+            <ion-item lines="none">
+              <ion-label position="floating"> Password</ion-label>
+              <ion-input type="text" ngModel name="password" required password></ion-input>
+              <ion-text class="error_msg" color="danger" *ngIf="password"> This field is required</ion-text>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+
+
+        <ion-row class="last_row">
+          <ion-col size="12">
+            <ion-button color="secondary" expand="block" (click)="add_member(form_register)">
+              Add Member
+            </ion-button>
+          </ion-col>       
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+  <div id="snackbar"> <span id="snackbar_error"></span></div>
+
+  
+  <div class="loader" *ngIf="loader_visibility">
+    <img src="assets/icon/loader.gif" alt="">
+  </div>
+   
+</ion-content>

@@ -1,0 +1,189 @@
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+ion-content {
+  //   height: 100%;
+  width: 100%;
+}
+
+.item-native {
+  --ion-background-color: var(--ion-color-light) !important;
+}
+
+.setting_icon {
+  text-align: center;
+  padding-top: 6%;
+  color: var(--ion-color-medium);
+}
+
+.form {
+  .full_width {
+    width: 100%;
+  }
+
+  ion-item {
+    --ion-background-color: var(--ion-color-light);
+    padding-bottom: 5%;
+  }
+
+  ion-select {
+    font-size: 0.8em;
+    border-bottom: 1px solid var(--ion-color-secondary);
+    font-weight: bold;
+    color: var(--ion-color-medium);
+  }
+
+  input {
+    background-color: var(--ion-color-light);
+  }
+
+  ion-label {
+    font-size: 0.8em;
+  }
+
+}
+
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+    opacity: 0
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1
+  }
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+    opacity: 0
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1
+  }
+}
+
+.login_container {
+  width: 100%;
+  position: absolute;
+  padding-left: 3%;
+  padding-right: 3%;
+
+}
+
+.container {
+  -webkit-animation: slide-in-bottom .4s cubic-bezier(.25, .46, .45, .94) both;
+  animation: slide-in-bottom .4s cubic-bezier(.25, .46, .45, .94) both;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 22%;
+
+}
+
+.scrollbar[scrollx=true] {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll-item {
+    flex: 0 0 auto;
+  }
+}
+
+
+.month_year_div {
+  height: 5%;
+  display: block;
+  padding: 2% 3% 0% 3%;
+  border-bottom: 1px solid var(--ion-color-secondary);
+  color: var(--ion-color-medium);
+  .month_year_label {
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+  .month_year_label_setting {
+    float: right;
+    font-size: 0.8em;
+  }
+}
+
+.calender_Date {
+  background-color: var(--ion-color-cardback);
+  border-radius: 5px;
+  text-align: center;
+  margin-right: 3%;
+  margin-bottom: 10px;
+  border: 1px solid var(--ion-color-shade);
+  padding: 8px 20px 5px 20px;
+  font-weight: bold;
+  color: var(--ion-color-medium2);
+
+  span {
+    font-size: 0.8em;
+    display: block;
+    padding-bottom: 5px;
+  }
+  .calender_date {
+    font-size: 0.8em;
+  }
+}
+
+.calender_Date.active {
+    background-color: var(--ion-color-secondary);
+  color: #fff;
+  .calender_day {
+    color: #fff;
+  }
+}
+
+.time_div {
+  margin-top: 1%;
+  display: inline;
+}
+
+.time_tab {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  .time_label {
+    background-color: var(--ion-color-cardback);
+    border-radius: 0.5vh;
+    text-align: center;
+    margin: 1% 1% 1% 1%;
+    color: var(--ion-color-medium2);
+    border: 1px solid var(--ion-color-shade);
+    padding: 8px 15px;
+    font-weight: bold;
+    font-size: 0.6em;
+    display: inline-block;
+  }
+  .active {
+      background-color: var(--ion-color-secondary);
+    color: #fff;
+  }
+}
+
+.prescription_footer_btn {
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 3%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: var(--ion-color-light);
+}
+
+ion-select::part(placeholder) {
+  color: var(--ion-color-medium);
+  opacity: 1;
+}

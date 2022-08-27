@@ -1,0 +1,66 @@
+<div class="main_container">
+  <div class="first_div">
+   
+    <img class="slider_image" src="assets/icon/header2.png" alt="">
+
+  </div>
+
+
+
+
+  <div class="login_container">
+    <div class="form">
+      <h4>Login to continue</h4>
+      <form #form_login="ngForm">
+        <ion-item lines="none">
+
+          <ion-label position="floating">Mobile</ion-label>
+          <ion-input type="number" name="mobile" ngModel required></ion-input>
+          <ion-text class="error_msg" color="danger" *ngIf="mobile"> This field is required</ion-text>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" name="password" ngModel required></ion-input>
+          <ion-text class="error_msg" color="danger" *ngIf="password" font-size="4"> This field is required</ion-text>
+
+        </ion-item>
+
+        <ion-row class="last_row">
+          <ion-col>
+            <ion-button class="login_button" expand="block" (click)="login(form_login)"> Sign In
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+      </form>
+      <p class="forgot_label"><a routerLink="/forgotpass">Forgot Password?</a> </p>
+
+
+    </div>
+
+  </div>
+</div>
+<!-- <p class="dont_have">Don't have an account? <span><a  >Sign Up</a></span></p> -->
+
+<section class="sticky">
+  <div class="bubbles">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+  </div>
+</section>
+
+<div id="snackbar"> <span id="snackbar_error"></span></div>
+
+
+<div class="loader" *ngIf="loader_visibility">
+  <img src="assets/icon/loader.gif" alt="">
+</div>

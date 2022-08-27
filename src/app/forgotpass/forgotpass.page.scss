@@ -1,0 +1,63 @@
+* {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.form {
+  padding-left: 2%;
+  padding-right: 2%;
+
+}
+
+
+.forgot {
+  float: right;
+  font-size: 0.8em;
+
+  color: var(--ion-color-secondary);
+  padding-top: 10px;
+}
+
+.last_row {
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+ion-input {
+  border-bottom: 1px solid var(--ion-color-primary);
+  color: var(--ion-color-medium);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+ion-icon {
+  font-size: 16px;
+}
+
+h2 {
+  font-weight: 400;
+  line-height: 14px;
+  margin-left: 20px;
+}
+
+p {
+  margin-left: 20px;
+  color: var(--ion-color-newcolor);
+  font-size: 0.8em;
+}
+
+.image_container {
+  text-align: center;
+  padding-top: 1vh;
+  padding-bottom: 0.2vh;
+
+  img {
+    height: 25vh;
+    width: 25vh;
+  }
+}
+
+.left_pad {
+  margin-left: 4%;
+}
